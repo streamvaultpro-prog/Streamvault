@@ -1,34 +1,31 @@
-The `index.html` is definitely in the wrong place in GitHub. The fastest fix is adding one special file — a `netlify.toml` — that tells Netlify exactly where everything is.
+`index.html` is stuck inside the `src/` folder. Let me fix both config files to look there instead.
 
-Do these **3 things in GitHub right now:**
+Also need to update `index.html` so it points to `main.jsx` correctly:
 
----
-
-**1️⃣ Add new file — `netlify.toml`**
-- Tap **"Add file"** → **"Create new file"**
-- Name it exactly: `netlify.toml`
-- Paste the contents → Commit
-
-**2️⃣ Update `vite.config.js`**
-- Find it in your repo → tap pencil ✏️ to edit
-- Replace all contents with the new version → Commit
-
-**3️⃣ Confirm `index.html` is at ROOT**
-- In your GitHub repo, you should see `index.html` at the **top level** alongside `package.json`
-- If you only see it inside `src/`, tap it → pencil ✏️ → change the filename from `src/index.html` to just `index.html` (this moves it to root)
+Update these **3 files in GitHub** right now:
 
 ---
 
-Your repo root must look like this:
+**1️⃣ Edit `netlify.toml`** (at root) — replace all contents
+
+**2️⃣ Edit `vite.config.js`** (at root) — replace all contents
+
+**3️⃣ Edit `src/index.html`** — replace all contents
+- This one stays **inside `src/`** — don't move it
+
+---
+
+Your final structure should be:
 ```
-├── index.html       ✅ ROOT
-├── package.json     ✅ ROOT
-├── netlify.toml     ✅ ROOT (new)
-├── vite.config.js   ✅ ROOT
+Streamvault/
+├── netlify.toml      ← root
+├── package.json      ← root
+├── vite.config.js    ← root
 └── src/
+    ├── index.html        ← stays in src/
     ├── main.jsx
     ├── StreamVaultPlatform.jsx
     └── StreamVaultPayments.jsx
 ```
 
-After committing, Netlify auto-retries. Send me a screenshot of your GitHub file list! 📂
+Commit all 3 changes and Netlify will auto-redeploy! 🚀
