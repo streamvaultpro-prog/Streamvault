@@ -1,31 +1,3 @@
-`index.html` is stuck inside the `src/` folder. Let me fix both config files to look there instead.
-
-Also need to update `index.html` so it points to `main.jsx` correctly:
-
-Update these **3 files in GitHub** right now:
-
----
-
-**1️⃣ Edit `netlify.toml`** (at root) — replace all contents
-
-**2️⃣ Edit `vite.config.js`** (at root) — replace all contents
-
-**3️⃣ Edit `src/index.html`** — replace all contents
-- This one stays **inside `src/`** — don't move it
-
----
-
-Your final structure should be:
-```
-Streamvault/
-├── netlify.toml      ← root
-├── package.json      ← root
-├── vite.config.js    ← root
-└── src/
-    ├── index.html        ← stays in src/
-    ├── main.jsx
-    ├── StreamVaultPlatform.jsx
-    └── StreamVaultPayments.jsx
-```
-
-Commit all 3 changes and Netlify will auto-redeploy! 🚀
+[build]
+  command = "npm run build"
+  publish = "dist"
